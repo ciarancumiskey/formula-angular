@@ -1,0 +1,12 @@
+
+<h2>Formula Angular Teams</h2>
+<ul class="teams">
+  <!--[class.selected] toggles .selected in the SASS file-->
+  <li *ngFor="let team of teams"
+    [class.selected]="team === selectedTeam"
+    (click)="onSelect(team)">
+    <span class="entrant">{{team.id}}</span>: {{team.name}} ({{team.country}})
+  </li>
+</ul>
+<!--The below is an Angular property binding-->
+<app-team-detail [team]="selectedTeam"></app-team-detail>

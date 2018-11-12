@@ -26,6 +26,9 @@ export class TeamDetailComponent implements OnInit {
     const id = +this.route.snapshot.paramMap.get('id'); //'+' is a JS operator for converting a string to a number
     this.teamService.getTeam(id).subscribe(team => this.team = team);
   }
+  save(): void{
+    this.teamService.updateTeam(this.team).subscribe(() => this.goBack());
+  }
   /**
    * Takes the user to the previous page
    */

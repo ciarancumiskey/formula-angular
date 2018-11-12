@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Team } from '../Team';
 import { TeamService } from '../team.service';
+import { Observable } from 'rxjs';
 
 @Component({  //This specifies the Angular metadata
   selector: 'app-teams', //CSS selector
@@ -29,5 +30,25 @@ export class TeamsComponent implements OnInit {
    */
   getTeams(): void{
     this.teamService.getTeams().subscribe(teams => this.teams = teams); //This way the UI won't freeze while waiting on data
+  }
+  /**
+   * 
+   * @param name The name of the new team
+   * @param country The country this new team comes from
+   */
+  add(name: string, country: string): void{
+    name = name.trim();
+    if(!name) { return; } //No point adding a team with no name
+    this.teamService.addTeam({ name, country } as Team).subscribe(team => {
+      this.teams.push(team);
+    })
+  }
+  /**
+   * 
+   * @param andrea_moda The team to be deleted, named in honour of F1's worst ever team.
+   */
+  delete(andrea_moda: Team): void {
+    this.teams = this.teams.filter(h => h !== andrea_moda);
+    this.teamService.deleteTeam(andrea_moda).subscribe();
   }
 }

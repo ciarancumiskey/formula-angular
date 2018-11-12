@@ -74,6 +74,15 @@ export class TeamService {
       catchError(this.handleError<Team>('deleteTeam'))
     );
   }
+  searchTeams(term: string): Observable<Team[]>{
+    if(!term.trim()){
+      return of([]); //Return a blank array if there's no search term
+    }
+    return this.http.get<Team[]>(`${this.teamsUrl}/?name=${term}`).pipe(
+      tap(_ => this.log(`Found teams matching "${term}`)),
+      catchError(this.handleError<Team[]>('searchTeams', []))
+    );
+  }
   private log(message: string){
     this.messageService.add(`TeamService: ${message}`);
   }

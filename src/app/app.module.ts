@@ -13,6 +13,7 @@ import { TeamDetailComponent } from './team-detail/team-detail.component';
 import { MessagesComponent } from './messages/messages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { Http } from '@angular/http';
+import { TeamSearchComponent } from './team-search/team-search.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { Http } from '@angular/http';
     TeamsComponent,
     TeamDetailComponent,
     MessagesComponent,
-    DashboardComponent
+    DashboardComponent,
+    TeamSearchComponent
   ],
   imports: [
     BrowserModule,

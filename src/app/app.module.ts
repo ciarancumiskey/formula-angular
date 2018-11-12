@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { TeamsComponent } from './teams/teams.component';
 import { TeamDetailComponent } from './team-detail/team-detail.component';
 import { MessagesComponent } from './messages/messages.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TeamsComponent,
     TeamDetailComponent,
-    MessagesComponent
+    MessagesComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,

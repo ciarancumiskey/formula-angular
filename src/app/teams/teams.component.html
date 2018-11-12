@@ -2,11 +2,11 @@
 <h2>Formula Angular Teams</h2>
 <ul class="teams">
   <!--[class.selected] toggles .selected in the SASS file-->
-  <li *ngFor="let team of teams"
-    [class.selected]="team === selectedTeam"
-    (click)="onSelect(team)">
-    <span class="entrant">{{team.id}}</span>: {{team.name}} ({{team.country}})
+  <li *ngFor="let team of teams">
+    <a routerLink="/detail/{{team.id}}">
+      <span class="entrant">{{team.id}}</span>: {{team.name}} ({{team.country}})
+    </a>
   </li>
 </ul>
-<!--The below is an Angular property binding-->
-<app-team-detail [team]="selectedTeam"></app-team-detail>
+<!--The below is an Angular property binding
+<app-team-detail [team]="selectedTeam"></app-team-detail>-->

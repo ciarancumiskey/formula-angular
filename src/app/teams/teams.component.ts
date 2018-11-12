@@ -20,10 +20,10 @@ export class TeamsComponent implements OnInit {
     //Put initialisation logic here
     this.getTeams(); //The constructor shouldn't do anything, ESPECIALLY NOT DATA REQUESTS
   }
-  selectedTeam: Team; //Don't assign anything, there shouldn't be a selected Team when the app starts
+  /**selectedTeam: Team; //Don't assign anything, there shouldn't be a selected Team when the app starts
   onSelect(team: Team): void {
     this.selectedTeam = team;
-  }
+  }This stuff is now redundant after implementing routing*/
   /**
    * This needs an asynchronous signature, as a real app will be working with a remote server, which demands async. ops.
    */
